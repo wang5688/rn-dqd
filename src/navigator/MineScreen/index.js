@@ -16,9 +16,9 @@ import RouteList from './components/route-list';
 import CustomList from './components/custom-list';
 
 export default class MineScreen extends Component {
-  static navigationOptions = {
-    
-  };
+  // static navigationOptions = {
+
+  // };
 
   componentDidMount () {
     this._navigationListener(); // navigation监听

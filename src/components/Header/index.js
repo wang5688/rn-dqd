@@ -7,45 +7,48 @@ import {
   Text,
   StyleSheet,
   Image,
-  TouchableHighlight
+  TouchableNativeFeedback
 } from 'react-native';
-import { MAIN_COLOR } from '../../styles/public/main';
+import { withNavigation } from 'react-navigation';
 
 class Header extends Component {
 
+  handleBackPress = () => {
+    this.props.navigation.goBack();
+  }
+
   render () {
     const {
-      navigation,
       title = '',
+      showBack = false, // 是否显示返回按钮
       style = {},
+      titleStyle = {},
       centerComponent = null,
-      leftComponent = null,
-      rightComponent = null,
+      left,
+      right,
     } = this.props;
 
-    const leftButton = leftComponent || (
-      <TouchableHighlight
+    const leftButton = showBack ? (
+      <TouchableNativeFeedback
         underlayColor="rgba(0, 0, 0, .2)"
-        onPress={() => {
-          console.log('press')
-        }}
+        onPress={this.handleBackPress}
       >
         <View style={styles.left}>
-          <Image style={styles.leftIcon} source={require('../../assets/images/new_icon_back_white.png')} />
+          <Image style={styles.leftIcon} source={require('../../assets/images/new_icon_back_black.png')} />
         </View>
-      </TouchableHighlight>
-    );
-    const rightButton = rightComponent || (
+      </TouchableNativeFeedback>
+    ) : (left || null);
+    const rightButton = right !== undefined ? (right || (
       <View style={styles.right}>
         <Image style={styles.rightIcon} source={require('../../assets/images/more_icon.png')} />
       </View>
-    );
+    )) : null;
     const center = (
       <View style={styles.center}>
         {
           title
             ?
-          <Text style={styles.title}>{title}</Text>
+          <Text style={[styles.title, titleStyle]}>{title}</Text>
             :
           centerComponent
         }
@@ -71,7 +74,7 @@ class Header extends Component {
 const styles = StyleSheet.create({
   header: {
     height: 40,
-    backgroundColor: MAIN_COLOR,
+    backgroundColor: '#fff',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -102,10 +105,9 @@ const styles = StyleSheet.create({
     height: 30
   },
   title: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: 'bold',
+    color: '#333',
+    fontSize: 18,
   }
 });
 
-export default Header;
+export default withNavigation(Header);

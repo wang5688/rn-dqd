@@ -10,7 +10,7 @@ import {
 export default class ListItem extends Component {
 
   onPress = (e) => {
-    this.props.onPress(e);
+    this.props.onPress(e, this.props);
   }
 
   render () {
@@ -24,7 +24,7 @@ export default class ListItem extends Component {
 
     return (
       <TouchableNativeFeedback
-        onPress={() => this.onPress}
+        onPress={this.onPress}
       >
         <View style={style.inner}>
           <View style={style.item}>

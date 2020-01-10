@@ -6,12 +6,14 @@ import { createStackNavigator, StackViewStyleInterpolator } from 'react-navigati
 import AuthScreen from './AuthScreen';
 import MainScreen from './MainScreen';
 import DetailScreen from './DetailScreen';
+import SettingScreen from './SettingScreen';
 // import DrawerScreen from './DrawerScreen';
 
 const routes = {
   Main: MainScreen, // 主界面
   Auth: AuthScreen, // 用户中心
   Detail: DetailScreen, // 详情页
+  Setting: SettingScreen
   // Pop
   // Auth
   // Modal

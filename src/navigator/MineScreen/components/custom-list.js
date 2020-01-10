@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import ListItem from '../../../components/ListItem';
 
-export default class CustomList extends Component {
+class CustomList extends Component {
+
+  handlePress = (e, meta) => {
+    const { navigation } = this.props;
+
+    if (meta.name === '设置') {
+      navigation.navigate('Setting');
+    }
+  }
 
   render () {
     const listData = [
@@ -22,10 +31,12 @@ export default class CustomList extends Component {
       <View style={{ backgroundColor: '#fff', marginTop: 8, }}>
         {
           listData.map((item) => (
-            <ListItem key={item.key} name={item.name} icon={item.icon} />
+            <ListItem key={item.key} name={item.name} icon={item.icon} onPress={this.handlePress} />
           ))
         }
       </View>
     );
   }
 }
+
+export default withNavigation(CustomList);

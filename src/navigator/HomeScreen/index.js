@@ -9,16 +9,24 @@ export default class HomeScreen extends Component {
     headerShown: false,
   };
 
+  componentDidMount () {
+    this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBackgroundColor(MAIN_COLOR);
+      StatusBar.setBarStyle('light-content');
+      StatusBar.setTranslucent(false);
+    });
+  }
+
   render() {
     const { navigation } = this.props;
-    console.log(this.props)
 
     return (
       <View style={[publicStyle.main]}>
         <StatusBar barStyle="light-content" backgroundColor={MAIN_COLOR} translucent={false} />
         <Header
           title="App"
-          navigation={navigation}
+          style={{ backgroundColor: MAIN_COLOR }}
+          titleStyle={{ color: '#fff' }}
         />
       </View>
     );
