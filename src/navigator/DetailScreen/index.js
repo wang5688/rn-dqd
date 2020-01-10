@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { WebView } from 'react-native-webview';
 
 export default class DetailScreen extends Component {
   static navigationOptions = {
@@ -8,9 +9,11 @@ export default class DetailScreen extends Component {
 
   render () {
     return (
-      <View>
-        <Text>Detail Screen</Text>
-      </View>
+      <WebView
+        style={{ flex: 1 }}
+        originWhitelist={['*']}
+        source={{ html: '<h1><a href="myapp://auth">点我看看</a></h1>' }}
+      />
     );
   }
 }

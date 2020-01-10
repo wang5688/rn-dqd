@@ -10,12 +10,17 @@ export default class HomeScreen extends Component {
   };
 
   componentDidMount () {
-    this.props.navigation.addListener('didFocus', () => {
+    this._navListener = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBackgroundColor(MAIN_COLOR);
       StatusBar.setBarStyle('light-content');
       StatusBar.setTranslucent(false);
     });
   }
+
+  componentWillUnmount() {
+    this._navListener.remove();
+  }
+  
 
   render() {
     const { navigation } = this.props;

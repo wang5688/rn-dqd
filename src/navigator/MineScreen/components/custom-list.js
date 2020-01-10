@@ -28,7 +28,7 @@ class CustomList extends Component {
     ];
 
     return (
-      <View style={{ backgroundColor: '#fff', marginTop: 8, }}>
+      <View style={{ backgroundColor: '#fff', marginTop: 6, }}>
         {
           listData.map((item) => (
             <ListItem key={item.key} name={item.name} icon={item.icon} onPress={this.handlePress} />

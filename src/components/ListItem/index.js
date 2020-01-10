@@ -21,13 +21,14 @@ export default class ListItem extends Component {
       rightCont,
     } = this.props;
     const iconSource = typeof icon === 'number' ? icon : { uri: icon };
+    console.log(this.props.key)
 
     return (
       <TouchableNativeFeedback
         onPress={this.onPress}
       >
         <View style={style.inner}>
-          <View style={style.item}>
+          <View style={style.item()}>
             {
               icon ? (
                 <Image
@@ -55,12 +56,15 @@ const style = StyleSheet.create({
   inner: {
     paddingHorizontal: 12,
   },
-  item: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 44,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f4f4f4',
+  item: (e) => {
+    console.log(e);
+    return {
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 50,
+      borderBottomWidth: 1,
+      borderBottomColor: '#f4f4f4',
+    };
   },
   itemIcon: {
     width: 18,
