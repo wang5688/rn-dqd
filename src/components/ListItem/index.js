@@ -21,7 +21,6 @@ export default class ListItem extends Component {
       rightCont,
     } = this.props;
     const iconSource = typeof icon === 'number' ? icon : { uri: icon };
-    console.log(this.props.key)
 
     return (
       <TouchableNativeFeedback
@@ -57,7 +56,6 @@ const style = StyleSheet.create({
     paddingHorizontal: 12,
   },
   item: (e) => {
-    console.log(e);
     return {
       flexDirection: 'row',
       alignItems: 'center',

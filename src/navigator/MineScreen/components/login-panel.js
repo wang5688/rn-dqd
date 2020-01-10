@@ -5,8 +5,14 @@ import {
 } from 'react-native';
 import Button from '../../../components/base/Button';
 import styles from '../styles/login-panel';
+import { withNavigation } from 'react-navigation';
 
-export default class LoginPanel extends Component {
+class LoginPanel extends Component {
+
+  callLogin = () => {
+    this.props.navigation.navigate('Login');
+  }
+
 
   render () {
     const loginTypes = [
@@ -31,11 +37,11 @@ export default class LoginPanel extends Component {
         </View>
         <Button
           title="登录/注册"
-          onPress={() => {
-            console.log('222')
-          }}
+          onPress={this.callLogin}
         />
       </View>
     );
   }
 }
+
+export default withNavigation(LoginPanel);

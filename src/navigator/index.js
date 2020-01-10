@@ -4,6 +4,7 @@
 import React from 'react';
 import { createStackNavigator, StackViewStyleInterpolator } from 'react-navigation-stack';
 import AuthScreen from './AuthScreen';
+import LoginScreen from './AuthScreen/Login';
 import MainScreen from './MainScreen';
 import DetailScreen from './DetailScreen';
 import SettingScreen from './SettingScreen';
@@ -12,6 +13,7 @@ import SettingScreen from './SettingScreen';
 const routes = {
   Main: MainScreen, // 主界面
   Auth: AuthScreen, // 用户中心
+  Login: LoginScreen, // 登录
   Detail: DetailScreen, // 详情页
   Setting: SettingScreen
   // Pop

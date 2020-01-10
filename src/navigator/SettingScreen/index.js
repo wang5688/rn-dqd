@@ -31,7 +31,7 @@ export default class SettingScreen extends Component {
   _setStatus = () => {
     StatusBar.setBarStyle('dark-content');
     StatusBar.setTranslucent(false);
-    StatusBar.setBackgroundColor('#fff');
+    StatusBar.setBackgroundColor('#fafafa');
   }
 
   render () {
@@ -50,7 +50,7 @@ export default class SettingScreen extends Component {
     );
 
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
         <Header title="设置" showBack={true} />
         
         <ScrollView style={styles.scroll}>
@@ -58,7 +58,7 @@ export default class SettingScreen extends Component {
             config.map((m, index) => renderModule(m, index))
           }
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 }
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
   },
   module: {
-    backgroundColor: '#fff',
+    backgroundColor: '#fafafa',
     marginTop: 6
   }
 });
